@@ -75,8 +75,7 @@ class _ForgotPaswordScreenState extends State<ForgotPaswordScreen> {
       await FirebaseAuth.instance
           .sendPasswordResetEmail(email: emailController.text.trim());
       Utils.showSnackBar('Password Reset Email Sent');
-      Navigator.of(context)
-          .pushNamedAndRemoveUntil('/authpage', (route) => false);
+      Navigator.of(context).pushNamedAndRemoveUntil('/login', (route) => false);
     } on FirebaseAuthException catch (e) {
       Utils.showSnackBar(e.message);
       Navigator.of(context).pop();
