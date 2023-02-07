@@ -65,11 +65,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ? 'A password must have at least 6 letters and 1 uppercase letter'
                     : null,
               ),
+              SizedBox(height: 4),
+              TextFormField(
+                cursorColor: Colors.white,
+                textInputAction: TextInputAction.next,
+                decoration: InputDecoration(labelText: 'Confirm Password'),
+                obscureText: true,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                validator: (password) => password != passwordController.text
+                    ? 'Your passwords do not match'
+                    : null,
+              ),
               SizedBox(height: 20),
               SignInButton(
                 color: const Color.fromARGB(255, 14, 83, 50),
                 iconData: FontAwesomeIcons.unlock,
-                text: "Sign in",
+                text: "Sign Up",
                 loginMethod: signUp,
               ),
               SizedBox(height: 24),
@@ -101,16 +112,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
     final isValid = formKey.currentState!.validate();
     if (!isValid) return;
 
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => const Center(
+              child: CircularProgressIndicator(),
+            ));
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
       if (!context.mounted) return;
-      Navigator.of(context).pop();
+      Navigator.pushNamed(context, '/verifyemail');
     } on FirebaseAuthException catch (e) {
       print(e);
-
+      Navigator.of(context).pop();
       Utils.showSnackBar(e.message);
     }
   }

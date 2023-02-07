@@ -3,6 +3,7 @@ import 'package:quizapp/email/auth_page.dart';
 import 'package:quizapp/email/email.dart';
 import 'package:quizapp/email/forgot_password.dart';
 import 'package:quizapp/email/signUp.dart';
+import 'package:quizapp/email/verify_email.dart';
 import 'package:quizapp/profile/profile.dart';
 import 'package:quizapp/login/login.dart';
 import 'package:quizapp/topics/topics.dart';
@@ -15,5 +16,6 @@ var appRoutes = {
   '/profile': (context) => const ProfileScreen(),
   '/about': (context) => const AboutScreen(),
   '/authpage': (context) => const AuthPage(),
-  '/forgotpassword': (context) => const ForgotPaswordScreen()
+  '/forgotpassword': (context) => const ForgotPaswordScreen(),
+  '/verifyemail': (context) => const VerifyEmailScreen()
 };

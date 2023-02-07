@@ -15,17 +15,19 @@ class LoginScreen extends StatelessWidget {
         padding: const EdgeInsets.all(30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const FlutterLogo(
               size: 150,
             ),
+            SizedBox(height: 35),
             LoginButton(
               color: Colors.blue,
               iconData: FontAwesomeIcons.google,
               loginMethod: AuthService().googleLogin,
               text: 'Sign in with google',
             ),
+            SizedBox(height: 24),
             LoginButton(
               color: Colors.black,
               iconData: FontAwesomeIcons.envelope,
@@ -34,6 +36,7 @@ class LoginScreen extends StatelessWidget {
               },
               text: 'Sign in with email',
             ),
+            SizedBox(height: 24),
             Flexible(
               child: LoginButton(
                 color: Colors.deepPurple,

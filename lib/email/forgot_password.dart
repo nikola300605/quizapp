@@ -67,7 +67,7 @@ class _ForgotPaswordScreenState extends State<ForgotPaswordScreen> {
     showDialog(
         context: context,
         barrierDismissible: false,
-        builder: (context) => Center(
+        builder: (context) => const Center(
               child: CircularProgressIndicator(),
             ));
 
