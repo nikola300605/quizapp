@@ -35,7 +35,7 @@ class TopicsScreen extends StatelessWidget {
                   onPressed: () => Navigator.pushNamed(context, '/profile'),
                   icon: Icon(
                     FontAwesomeIcons.user,
-                    size: 10,
+                    size: 20,
                   ),
                 )
               ],

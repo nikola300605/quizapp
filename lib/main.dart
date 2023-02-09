@@ -52,6 +52,7 @@ class _AppState extends State<App> {
               scaffoldMessengerKey: Utils.messengerKey,
               routes: appRoutes,
               theme: appTheme,
+              debugShowCheckedModeBanner: false,
             ),
           );
         }
