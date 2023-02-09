@@ -7,6 +7,7 @@ import 'package:quizapp/services/models.dart';
 import 'package:quizapp/shared/bottom_nav.dart';
 import 'package:quizapp/shared/error.dart';
 import 'package:quizapp/shared/loading.dart';
+import 'package:quizapp/topics/drawer.dart';
 import 'package:quizapp/topics/topic_item.dart';
 
 class TopicsScreen extends StatelessWidget {
@@ -24,6 +25,7 @@ class TopicsScreen extends StatelessWidget {
         } else if (snapshot.hasData) {
           var topics = snapshot.data!;
           return Scaffold(
+            drawer: TopicDrawer(topics: topics),
             appBar: AppBar(
               backgroundColor: Colors.deepPurple,
               centerTitle: true,
